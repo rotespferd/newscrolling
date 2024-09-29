@@ -5,7 +5,20 @@ from fasthtml.common import *
 from entry import Entry
 from entryElement import EntryElement
 
-app, rt = fast_app()
+
+hdrs = [
+    Meta(charset="UTF-8"),
+    Meta(
+        name="viewport",
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0",
+    ),
+    Meta(
+        name="description", content="FastHTML template using Tailwind CSS for styling"
+    ),
+    Link(href="css/output.css", rel="stylesheet"),
+]
+
+app, rt = fast_app(hdrs=hdrs, live=True, pico=False)
 
 @rt("/")
 def get():
